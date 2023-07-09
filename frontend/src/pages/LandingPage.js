@@ -1,13 +1,12 @@
 import React from 'react';
-import Navbar from '../components/navbar';
-import { BrowserRouter as Router } from 'react-router-dom';
+import LandingBar from '../components/LandingBar';
 
-const LandingPage = () =>
+function LandingPage()
 {
     return(
-        <Router>
-            <Navbar />
-        </Router>
+        <>
+            <LandingBar />
+        </>
     );
 };
 
