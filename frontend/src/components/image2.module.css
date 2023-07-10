@@ -1,0 +1,32 @@
+.text
+{
+    font: bold 20px monospace;
+    padding-left: 14%;
+    padding-right: 15%;
+    align-self: center; 
+    order: 1;
+}
+
+.subtext
+{
+    color: #474747;
+    font: 12px monospace;
+    padding-left: 10%;
+    align-self: center; 
+}
+
+img
+{
+    order: 2;
+    box-shadow: 0px 0px 50px 5px gray;
+}
+
+
+
+.container
+{
+    padding-top: 23%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 500px;
+}
