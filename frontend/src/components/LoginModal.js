@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
+import { LoginForm } from './LoginForm';
+import Tabs from './Tabs';
 
 const Background = styled.div`
   width: 100%;
@@ -52,7 +54,7 @@ export const LoginModal = ({ showModal, setShowModal }) => {
         <Background>
           <ModalWrapper showModal={showModal}>
             <ModalContent>
-              <h1>It's Modal Time!</h1>
+              <Tabs/>
             </ModalContent>
             <CloseModalButton
                 aria-label='Close modal'
