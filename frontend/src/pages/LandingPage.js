@@ -4,7 +4,12 @@ import { LoginModal } from '../components/LoginModal';
 import { Button } from '../components/Button';
 import Image1 from '../components/image1';
 import Image2 from '../components/image2';
+import styled from 'styled-components';
 import '../components/Button.css';
+
+const Contiainer = styled.div`
+    display: flex;
+`;
 
 function LandingPage()
 {
@@ -14,17 +19,14 @@ function LandingPage()
         setShowModal(prev => !prev);
     };
 
-    const onClick = () => {
-        
-    }
-
     return(
         <>
-            <LandingBar />
             <LoginModal showModal={showModal} setShowModal={setShowModal}/>
+            <LandingBar />
             <Image1/>
             <Image2/>
-            <Button onClick={onClick}>Get Started</Button>
+            <Button onClick={openModal}>Get Started</Button>
+
         </>
     );
 };
