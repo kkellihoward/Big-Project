@@ -1,16 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
+import { Button } from './Button';
 
-function btmbtn ()
+function Btmbtn ()
 {
 
     return(
         <>
-        
-        <button>hello</button>
-        
+
+            <div>
+             <Button onClick={onclick}>hello</Button>
+            </div>
+
         </>
     )
     
 }
 
-export default btmbtn;
+export default Btmbtn;

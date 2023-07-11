@@ -6,7 +6,7 @@ import Image1 from '../components/image1';
 import Image2 from '../components/image2';
 import styled from 'styled-components';
 import '../components/Button.css';
-
+import Btmbtn from '../components/btmbtn';
 
 
 
@@ -29,7 +29,7 @@ function LandingPage()
             <Image1/>
             <Image2/>
             <Button onClick={openModal}>Get Started</Button>
-
+            <Btmbtn />
         </>
     );
 };
