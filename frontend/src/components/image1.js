@@ -8,7 +8,7 @@ function Image1()
    return(
         <>
             <div className = {Image1CSS.container}>
-                    <img width="43%"src = {require('../assests/images/Part_1_alternate.jpg')} alt='website homepage'  />
+                    <img width="43%"src = {require('../assets/images/Part_1_alternate.jpg')} alt='website homepage'  />
                 <div className ={Image1CSS.text}>
                     <center>
                     <p>Manage all your events!</p>

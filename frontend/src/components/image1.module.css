@@ -1,5 +1,6 @@
 .container
 {
+    padding-top: 12%;
     display: flex;
     flex-wrap: wrap;
     height: 500px;
