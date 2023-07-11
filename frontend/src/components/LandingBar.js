@@ -23,8 +23,12 @@ function LandingBar() {
     return (
         <div className='nav'>
             <div className='res'>RES</div>
-            <img className='bar-image' src={barImage} width='60%' />
-            {button && <Button onClick={onClick} buttonStyle='btn--outline'>SIGN UP</Button>}
+            <center>
+            <img className = 'navimg' src={barImage} width='55%' />
+            </center>
+            <div className='btnord'>
+            {button && <Button className = 'btnord' onClick={onClick} buttonStyle='btn--outline'>SIGN UP</Button>}
+            </div>        
         </div>
     );
 };

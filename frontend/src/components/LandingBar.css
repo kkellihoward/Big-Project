@@ -6,7 +6,21 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: 0.48px;
+    letter-spacing: 1.48px;
+    padding-left: 15px;
+    order: 0;
+}
+
+
+.navimg
+{
+    box-shadow: none;
+    
+}
+
+.btnord
+{
+    padding-right: 20px;
 }
 
 .nav {
@@ -14,10 +28,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.2rem calc((100vw - 1000px) / 2);
+     padding: 1px; 
+     /* padding: 0.2rem calc((100vw - 1000px) / 2);  */
     background: #6E3CFD;
+    margin-inline: -20px;
+    margin-block-start: -10px;
 }
 
-/* .bar-image {
-
-} */

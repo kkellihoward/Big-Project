@@ -7,6 +7,9 @@ import Image2 from '../components/image2';
 import styled from 'styled-components';
 import '../components/Button.css';
 
+
+
+
 const Contiainer = styled.div`
     display: flex;
 `;
