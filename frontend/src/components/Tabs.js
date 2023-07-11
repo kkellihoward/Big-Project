@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LoginForm } from "./LoginForm";
+import { SignupForm } from "./SignupForm";
 import "./Tabs.css";
 
 function Tabs() {
@@ -35,12 +36,7 @@ function Tabs() {
         <div
           className={toggleState === 2 ? "content  active-content" : "content"}
         >
-          <h2>Content 2</h2>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            voluptatum qui adipisci.
-          </p>
+          <SignupForm/>
         </div>
       </div>
     </div>
