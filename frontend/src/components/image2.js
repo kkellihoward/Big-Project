@@ -7,7 +7,7 @@ function Image2()
     return(
         <>
             <div className = {Image2CSS.container}>
-                    <img src = {require('../photos/Part_7.jpg')} alt = 'website event information' width='40%'/>
+                    <img src = {require('../assests/images/Part_7.jpg')} alt = 'website event information' width='40%'/>
                 <div className= {Image2CSS.text}>
                     <p>
                         Stay connected with all your friends like 
@@ -23,7 +23,6 @@ function Image2()
             </div>
         </>
     );
-
 };
 
 export default Image2;
