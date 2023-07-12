@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import { Button } from './Button';
-import barImage from '../assets/images/IMG_0540.png';
-import './LandingBar.css';
+import './style.css';
+import { LoginModal } from '../components/LoginModal';
 
-function LandingBar() {
+function LandingBar(props) {
     const [button, setButton] = useState(true);
-
-    const onClick = () => {
-        
-    }
-
     const showButton = () => {
         if(window.innerWidth <= 960) {
             setButton(false);
@@ -18,14 +13,31 @@ function LandingBar() {
         }
     };
 
-    window.addEventListener('resize', showButton);
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(prev => !prev);
+        props.setHideText(prev => !prev);
+    };
+
+   window.addEventListener('resize', showButton);
 
     return (
-        <div className='nav'>
-            <div className='res'>RES</div>
-            <img className='bar-image' src={barImage} width='60%' />
-            {button && <Button onClick={onClick} buttonStyle='btn--outline'>SIGN UP</Button>}
+        <>
+        <LoginModal showModal={showModal} setShowModal={setShowModal} hideText={props.hideText} setHideText={props.setHideText}/>
+        <div className='navBar' style={{ display: "flex" }}>
+        <>
+            {
+            !props.hideText ? 
+            <div className='button1div' style={{ marginLeft: "auto" }}>
+                <button className='button1' onClick={openModal}>Get Started</button>
+            </div>
+            :
+            <></>
+            }
+            </>        
         </div>
+        </>
     );
 };
 

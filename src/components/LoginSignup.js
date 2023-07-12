@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
+
 //entire signup login component
 export const Container = styled.div`
 background-color: #7f44d4;
-border-radius: 10px;
+border-radius: 5px;
 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 position: relative;
 overflow: hidden;
@@ -13,6 +14,7 @@ max-width: 100%;
 min-height: 400px;
 `;
 
+//create account side
 export const SignUpContainer = styled.div`
  position: absolute;
  top: 0;
@@ -74,22 +76,27 @@ width: 100%;
 
 //textt inside of login and sign up buttons
 export const Button = styled.button`
-   border-radius: 20px;
-   border: 1px solid #7f44d4;
-   background-color: #7f44d4;
-   color: #ffffff;
-   font-size: 12px;
-   font-weight: bold;
-   padding: 12px 45px;
-   letter-spacing: 1px;
-   text-transform: uppercase;
-   transition: transform 80ms ease-in;
-   &:active{
-       transform: scale(0.95);
-   }
-   &:focus {
-       outline: none;
-   }
+  border-radius: 5px;
+  border: 1px solid #7f44d4;
+  background-color: #7f44d4;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  &:hover {
+  background-color: #c08fff;
+  border-color: white;
+  cursor: pointer;
+  }
+  &:active{
+    transform: scale(0.95);
+  }
+  &:focus {
+    outline: none;
+  }
 `;
 
 //text inside of the button that slides
@@ -143,7 +150,7 @@ export const OverlayPanel = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    padding: 0 8px;
     text-align: center;
     top: 0;
     height: 100%;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.css';
+import './style.css';
 
 const STYLES = ['btn--primary', 'btn--outline'];
 
