@@ -1,12 +1,8 @@
 
-/* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 
-/* 
-
-Get started button  css
-
-*/
+/* Get started button  css */
 
 /* Get started button background color */
 :root {
@@ -45,11 +41,7 @@ Get started button  css
     transition: 250ms;
   }
   
-  /* 
-  
-  Nav Bar CSS
-  
-  */
+  /* Nav Bar CSS*/
  
   /* nav bar get started button */
   .button1{
@@ -133,11 +125,7 @@ Get started button  css
     transition: 250ms;
   }
 
-/* 
-
-Image 1 text
-
-*/
+/*Image 1 text*/
 
 .lptext1 {
   position: absolute;
@@ -152,11 +140,7 @@ Image 1 text
   overflow: hidden;
 }
 
-/* 
-
-Image CSS
-
-*/
+/* Image CSS*/
 img
 {
   order: 2;
