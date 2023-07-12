@@ -1,134 +1,115 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-
-/* Get started button  css */
-
-/* Get started button background color */
 :root {
-    --primary: #fff;
+  --primary: #fff;
 }
-/* button design */
+
 .btn {
-    padding: 8px 20px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    background-color: #fff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
 }
 
-/* Button text */
 .btn--primary {
-    background-color: var(--primary);
-    color: #242424;
-    border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: #242424;
+  border: 1px solid var(--primary);
 }
 
-/* no idea what this is for */
-  .btn--large {
-    padding: 12px 26px;
-    font-size: 100px;
-    background-color: red;
-  } */
+.btn--large {
+  padding: 12px 26px;
+  font-size: 100px;
+  background-color: red;
+}
   
-  /* button hover color */
-  .btn--large:hover,
-  .btn--medium:hover {
-    transition: all 0.3s ease-out;
-    background: white;
-    color: #242424;
-    transition: 250ms;
-  }
-  
-  /* Nav Bar CSS*/
- 
-  /* nav bar get started button */
-  .button1{
-    padding: 8px 15px;
-    border-radius: 5px;
-    outline: none;
-    position: relative;
-    background-color: transparent;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: large;
-    /* font-family: 'Lato'; */
-    border: 2px solid #d5baf8;
-    font-weight: bolder;
-  }
+.btn--large:hover,
+.btn--medium:hover {
+  transition: all 0.3s ease-out;
+  background: white;
+  color: #242424;
+  transition: 250ms;
+}
 
-  .button2{
-    padding: 8px 15px;
-    border-radius: 5px;
-    outline: none;
-    width: 20vw;
-    height: 10vh;
-    background-color: #7f44d4;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: large;
-    font-family: 'Lato';
-    /* border: 2px solid #d5baf8; */
-    font-weight: bolder;
-  }
+.button1{
+  padding: 8px 15px;
+  border-radius: 5px;
+  outline: none;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: large;
+  border: 2px solid #d5baf8;
+  font-weight: bolder;
+}
 
-  .button1:hover {
-    transition: all 0.3s ease-out;
-    background: #c08fff;
-    color: #242424;
-    transition: 250ms;
-  }
+.button2{
+  padding: 8px 15px;
+  border-radius: 5px;
+  outline: none;
+  width: 20vw;
+  height: 10vh;
+  background-color: #7f44d4;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: large;
+  font-family: 'Lato';
+  font-weight: bolder;
+}
 
-  .button2:hover {
-    transition: all 0.3s ease-out;
-    background: #c08fff;
-    color: #242424;
-    transition: 250ms;
-  }
+.button1:hover {
+  transition: all 0.3s ease-out;
+  background: #c08fff;
+  color: #242424;
+  transition: 250ms;
+}
 
+.button2:hover {
+  transition: all 0.3s ease-out;
+  background: #c08fff;
+  color: #242424;
+  transition: 250ms;
+}
 
-  /* landing page top nav bar */
-  .navBar {
-    height: 60px;
-    width: 983px;
-    display: flex;
-    z-index: 1;
-    overflow-x: hidden;
-    justify-content: space-between;
-    margin-bottom: 2px;
-    align-items: center;
-    padding: 0.2rem calc((100vw - 1000px) / 2);
-    background: #7f44d4;
-  }
-  
-    /* Menu bar signup button */
-  .btn--outline {
-    background-color: transparent;
-    color: #fff;
-    padding: 8px 20px;
-    border: 1px solid var(--primary);
-    transition: all 0.3s ease-out;
-  }
+.navBar {
+  height: 60px;
+  width: 983px;
+  display: flex;
+  z-index: 1;
+  overflow-x: hidden;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  align-items: center;
+  padding: 0.2rem calc((100vw - 1000px) / 2);
+  background: #7f44d4;
+}
 
-  /* Text inside of menu bar get started button */
-  .btn--medium {
-    padding: 8px 20px;
-    font-size: 18px;
-  }
-  
-  /* hover menu bar sign up button */
-  .btn--medium:hover {
-    transition: all 0.3s ease-out;
-    background: white;
-    color: #242424;
-    transition: 250ms;
-  }
+.btn--outline {
+  background-color: transparent;
+  color: #fff;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+}
 
-/*Image 1 text*/
+.btn--medium {
+  padding: 8px 20px;
+  font-size: 18px;
+}
+
+.btn--medium:hover {
+  transition: all 0.3s ease-out;
+  background: white;
+  color: #242424;
+  transition: 250ms;
+}
 
 .lptext1 {
-  position: absolute;
+position: absolute;
   top: 50%;
   left: 50%;
   font-size: 1.5rem;
@@ -140,7 +121,7 @@
   overflow: hidden;
 }
 
-/* Image CSS*/
+
 img
 {
   order: 2;
