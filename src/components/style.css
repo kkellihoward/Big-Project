@@ -133,4 +133,23 @@ img
   overflow: hidden;
 }
 
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  /* background: #000; */
+  /* color: #fff; */
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.hide {
+  display: none;
+}
+
 

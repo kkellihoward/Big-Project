@@ -1,7 +1,9 @@
 import React from 'react';
+import { SignUpForm } from './SignUpForm';
 import styled from 'styled-components';
 import * as Components from './LoginSignup';
 import { MdClose } from 'react-icons/md';
+
 // css styling for modal from background to close modal
 const Background = styled.div`
   width: 100%;
@@ -58,25 +60,26 @@ export const LoginModal = ({ showModal, setShowModal, hidetext, setHideText }) =
             <Components.Container>
               <Components.SignUpContainer signinIn={signIn}>
                   {/* setting the create account side as a form */}
-                  <Components.Form>
+                  <SignUpForm />
+                  {/* <Components.Form> */}
                       <Components.Title>Create Account</Components.Title>
                       {/* creating input values  */}
-                      <Components.Input type='userName' placeholder='User Name' />
+                      {/* <Components.Input type='userName' placeholder='User Name' />
                       <Components.Input type='email' placeholder='Email' />
                       <Components.Input type='password' placeholder='Password' />
                       <Components.Button style={{backgroundColor: '#7f44d4'}}>Sign Up</Components.Button>
-                  </Components.Form>
+                  </Components.Form> */}
               </Components.SignUpContainer>
 
               <Components.SignInContainer signinIn={signIn}>
                   {/*setting the create account side of form  */}
-                   <Components.Form>
-                      {/* setting field values for sign up */}
-                       <Components.Title>Sign in</Components.Title>
-                       <Components.Input type='userName1' placeholder='User Name' />
-                       <Components.Input type='password' placeholder='Password' />
-                       <Components.Button style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
-                   </Components.Form>
+                <Components.Form>
+                  {/* setting field values for sign up */}
+                  <Components.Title>Sign in</Components.Title>
+                  <Components.Input type='userName1' placeholder='User Name' />
+                  <Components.Input type='password' placeholder='Password' />
+                  <Components.Button style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
+                </Components.Form>
               </Components.SignInContainer>
 
               {/* container for sliding pannels, as it slides the information changes */}
