@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import * as Components from './LoginSignup';
 import { MdClose } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
+
 // css styling for modal from background to close modal
 const Background = styled.div`
   width: 100%;
@@ -48,6 +50,12 @@ const CloseModalButton = styled(MdClose)`
 
 export const LoginModal = ({ showModal, setShowModal, hidetext, setHideText }) => {
   const [signIn, toggle] = React.useState(true);
+  const navigate = useNavigate()
+
+  const handleLogin = () => {
+    navigate('/Events')
+  }
+
   return (
     <>
       {showModal && (
@@ -75,7 +83,7 @@ export const LoginModal = ({ showModal, setShowModal, hidetext, setHideText }) =
                        <Components.Title>Sign in</Components.Title>
                        <Components.Input type='userName1' placeholder='User Name' />
                        <Components.Input type='password' placeholder='Password' />
-                       <Components.Button style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
+                       <Components.Button onClick={handleLogin} style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
                    </Components.Form>
               </Components.SignInContainer>
 
