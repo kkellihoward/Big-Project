@@ -61,7 +61,8 @@ export const SignUpForm = () => {
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <Components.Form onSubmit={createAccount}>
                 {/* setting field values for sign up */}
-                <Components.Title>Sign in</Components.Title>
+                <Components.Title>Sign up</Components.Title>
+
                 <Components.Input 
                     type='userName' 
                     placeholder='User Name'
@@ -73,15 +74,14 @@ export const SignUpForm = () => {
                     onFocus={() => setUserFocus(true)}
                     onBlur={() => setUserFocus(false)} 
                 />
-                <span className={validName ? "valid" : "hide"}>
-                    <FontAwesomeIcon icon={faCheck} />
-                </span>
+                <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                 <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
                     <FontAwesomeIcon icon={faInfoCircle} />
                     &nbsp;4 to 24 characters.<br />
                     Must begin with a letter.<br />
                     Letters, numbers, underscores, hyphens allowed.
                 </p>
+
                 <Components.Input 
                     type='email'
                     placeholder='Email'
@@ -91,13 +91,12 @@ export const SignUpForm = () => {
                     onFocus={() => setEmailFocus(true)}
                     onBlur={() => setEmailFocus(false)}
                 />
-                <span className={validEmail ? "valid" : "hide"}>
-                    <FontAwesomeIcon icon={faCheck} />
-                </span>
+                <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
                 <p id="emailnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
                     <FontAwesomeIcon icon={faInfoCircle} />
                     &nbsp;Enter a valid email address.
                 </p>
+
                 <Components.Input 
                     type='password' 
                     placeholder='Password'
@@ -109,16 +108,29 @@ export const SignUpForm = () => {
                     onFocus={() => setPwdFocus(true)}
                     onBlur={() => setPwdFocus(false)}
                 />
-                <span className={validPwd ? "valid" : "hide"}>
-                    <FontAwesomeIcon icon={faCheck} />
-                </span>
+                <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"}/>
                 <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                     <FontAwesomeIcon icon={faInfoCircle} />
-                    8 to 24 characters.<br />
+                    &nbsp;8 to 24 characters.<br />
                     Must include uppercase and lowercase letters, a number and a special character.<br />
                     Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                 </p>
-                <Components.Input type='password' placeholder='Confirm Password' />
+                <Components.Input 
+                    type='password' 
+                    placeholder='Confirm Password'
+                    onChange={(e) => setMatchPwd(e.target.value)}
+                    value={matchPwd}
+                    required
+                    aria-invalid={validMatch ? "false" : "true"}
+                    aria-describedby="confirmnote"
+                    onFocus={() => setMatchFocus(true)}
+                    onBlur={() => setMatchFocus(false)}
+                />
+                <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
+                <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                    &nbsp;Must match the first password input field.
+                </p>
                 <Components.Button type='submit' style={{backgroundColor: '#7f44d4'}}>Sign Up</Components.Button>
             </Components.Form>
         </>
