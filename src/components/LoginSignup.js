@@ -8,7 +8,7 @@ border-radius: 5px;
 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 position: relative;
 overflow: hidden;
-width: 800px;
+width: 61vw;
 height: 500px;
 max-width: 100%;
 min-height: 400px;
@@ -104,6 +104,7 @@ export const GhostButton = styled(Button)`
 background-color: transparent;
 border-color: #ffffff;
 `;
+
 //forgot password text
 export const Anchor = styled.a`
 color: #333;

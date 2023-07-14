@@ -51,10 +51,15 @@ export const SignUpForm = () => {
         setErrMsg('');
     }, [user, pwd, matchPwd]);
 
+    const createAccount = e => {
+        e.preventDefault();
+        console.log(user, email, pwd);
+    };
+
     return (
         <>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <Components.Form>
+            <Components.Form onSubmit={createAccount}>
                 {/* setting field values for sign up */}
                 <Components.Title>Sign in</Components.Title>
                 <Components.Input 
@@ -114,7 +119,7 @@ export const SignUpForm = () => {
                     Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                 </p>
                 <Components.Input type='password' placeholder='Confirm Password' />
-                <Components.Button style={{backgroundColor: '#7f44d4'}}>Sign Up</Components.Button>
+                <Components.Button type='submit' style={{backgroundColor: '#7f44d4'}}>Sign Up</Components.Button>
             </Components.Form>
         </>
     );

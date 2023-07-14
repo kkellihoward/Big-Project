@@ -22,7 +22,7 @@ function LandingPage()
     };
 
     return(
-        <>
+        <div>
             <LoginModal showModal={showModal} setShowModal={setShowModal} hideText={hideText} setHideText={setHideText}/>
             <LandingBar hideText={hideText} setHideText={setHideText}/>
             <Image1/>
@@ -44,7 +44,7 @@ function LandingPage()
                 </>
             </div>
             <Footer/>
-        </>
+        </div>
     );
 };
 

@@ -17,7 +17,7 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  width: 800px;
+  width: 61vw;
   height: 500px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -56,7 +56,6 @@ export const LoginModal = ({ showModal, setShowModal, hidetext, setHideText }) =
   const handleLogin = () => {
     navigate('/Events')
   }
-
   return (
     <>
       {showModal && (
@@ -70,12 +69,6 @@ export const LoginModal = ({ showModal, setShowModal, hidetext, setHideText }) =
                   <SignUpForm />
                   {/* <Components.Form> */}
                       <Components.Title>Create Account</Components.Title>
-                      {/* creating input values  */}
-                      {/* <Components.Input type='userName' placeholder='User Name' />
-                      <Components.Input type='email' placeholder='Email' />
-                      <Components.Input type='password' placeholder='Password' />
-                      <Components.Button style={{backgroundColor: '#7f44d4'}}>Sign Up</Components.Button>
-                  </Components.Form> */}
               </Components.SignUpContainer>
 
               <Components.SignInContainer signinIn={signIn}>

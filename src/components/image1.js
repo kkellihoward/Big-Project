@@ -1,8 +1,6 @@
 import React from 'react';
 import Image1CSS from './style.css';
 
-
-
 function Image1()
 {
    return(
