@@ -27,14 +27,23 @@ const getAccount = async (req, res) => {
 
 // create a new account
 const createAccount = async (req, res) => {
-    const {username, password} = req.body;
+    const {username, password, phone, email} = req.body;
 
-    // add doc to db
-    try {
-        const account = await Account.create({username, password});
-        res.status(200).json(account);
-    } catch (error) {
-        res.status(400).json({error: error.message});
+    const temp = await Account.findOne({username: username});
+
+    if (temp)
+    {
+        res.status(400).json({error: "Account already exists"});
+    }
+    else
+    {
+        // add doc to db
+        try {
+            const account = await Account.create({username, password, phone, email});
+            res.status(200).json(account);
+        } catch (error) {
+            res.status(400).json({error: "Account unable to be created"});
+        }
     }
 };
 
