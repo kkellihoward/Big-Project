@@ -1,4 +1,4 @@
-const Account = require('../models/accountModel');
+const Account = require('./accountModel');
 const mongoose = require('mongoose');
 
 // get all accounts
