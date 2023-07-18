@@ -14,6 +14,7 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 `;
 
 const ModalWrapper = styled.div`
@@ -25,7 +26,7 @@ const ModalWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
-  // z-index: 10;
+  z-index: 10;
   border-radius: 5px;
 `;
 
@@ -36,6 +37,7 @@ const ModalContent = styled.div`
   align-items: center;
   line-height: 1.8;
   color: #141414;
+  z-index: 10;
 `;
 
 const CloseModalButton = styled(MdClose)`
@@ -49,13 +51,14 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-export const LoginModal = ({ showModal, setShowModal, hidetext, setHideText }) => {
+export const LoginModal = ({ showModal, setShowModal}) => {
   const [signIn, toggle] = React.useState(true);
   const navigate = useNavigate()
 
   const handleLogin = () => {
     navigate('/Events')
   }
+
   return (
     <>
       {showModal && (
@@ -115,7 +118,7 @@ export const LoginModal = ({ showModal, setShowModal, hidetext, setHideText }) =
             </ModalContent>
             <CloseModalButton
                 aria-label='Close modal'
-                onClick={() => (setShowModal(prev => !prev), setHideText(prev => !prev))} 
+                onClick={() => (setShowModal(prev => !prev))}
             />
           </ModalWrapper>
         </Background>

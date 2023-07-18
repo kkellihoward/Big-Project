@@ -27,7 +27,7 @@
 }
   
 .btn--large:hover,
-.btn--medium:hover {
+.btn--medium:hover { 
   transition: all 0.3s ease-out;
   background: white;
   color: #242424;
@@ -42,6 +42,7 @@
   position: relative;
   background-color: transparent;
   cursor: pointer;
+  z-index: scale;
   color: #ffffff;
   font-size: large;
   border: 2px solid #d5baf8;
@@ -58,7 +59,7 @@
   outline: none;
   width: 20vw;
   height: 10vh;
-  background-color: #7f44d4;
+  background-color:#7f44d4;
   cursor: pointer;
   color: #ffffff;
   font-size: large;
@@ -87,6 +88,7 @@
   justify-content: end;
   margin: 0 auto;
   height: 70px;
+  width: auto;
   z-index: 1;
   overflow-x: hidden;
   align-items: center;
@@ -119,11 +121,12 @@
   top: 50%;
   left: 50%;
   font-size: 1.5rem;
-  width: 90vw;
+  width: 70vw;
   word-wrap: break-word;
   margin-top: 10vh;
+  z-index: -1;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #ffffff;
   overflow: hidden;
 }
 
@@ -132,7 +135,7 @@ img
 {
   position: relative;
   object-fit: cover;
-  width: 98.7vw;
+  width: 100%;
   height: 150vh;
   z-index: -1;
 }
@@ -145,8 +148,6 @@ img
 .instructions {
   font-size: 0.75rem;
   border-radius: 0.5rem;
-  /* background: #000; */
-  /* color: #fff; */
   padding: 0.25rem;
   position: relative;
   bottom: -10px;
@@ -155,24 +156,4 @@ img
 .hide {
   display: none;
 }
-
-.offscreen {
-  position: absolute;
-  left: -9999px;
-}
-
-.instructions {
-  font-size: 0.75rem;
-  border-radius: 0.5rem;
-  /* background: #000; */
-  /* color: #fff; */
-  padding: 0.25rem;
-  position: relative;
-  bottom: -10px;
-}
-
-.hide {
-  display: none;
-}
-
 

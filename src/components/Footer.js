@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
   display: flex;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  width: auto;
   margin-top: -2px;
   align-items: center;
   justify-content: center;

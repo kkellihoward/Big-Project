@@ -12,6 +12,7 @@ width: 61vw;
 height: 500px;
 max-width: 100%;
 min-height: 400px;
+z-index: 1;
 `;
 
 //create account side

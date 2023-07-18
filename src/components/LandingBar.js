@@ -17,25 +17,17 @@ function LandingBar(props) {
 
     const openModal = () => {
         setShowModal(prev => !prev);
-        props.setHideText(prev => !prev);
     };
 
    window.addEventListener('resize', showButton);
 
     return (
         <>
-        <LoginModal showModal={showModal} setShowModal={setShowModal} hideText={props.hideText} setHideText={props.setHideText}/>
-        <div className='navBar' style={{ display: "flex" }}>
-        <>
-            {
-            !props.hideText ? 
+        <LoginModal showModal={showModal} setShowModal={setShowModal}/>
+        <div className='navBar' style={{ display: "flex" }}> 
             <div className='button1div' style={{ marginLeft: "auto" }}>
                 <button className='button1' onClick={openModal}>Get Started</button>
-            </div>
-            :
-            <></>
-            }
-            </>        
+            </div>     
         </div>
         </>
     );
