@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -18,7 +18,7 @@ const accountSchema = new Schema({
     email: {
         type: String,
         required: true
-    }
+    },
     hosted_event_ids: [{
         type: String,
         required: false
@@ -29,4 +29,4 @@ const accountSchema = new Schema({
     }]
 }, {timestamps: true});
 
-module.exports = mongoose.model('Account', accountSchema);
+export default mongoose.model('Account', accountSchema);

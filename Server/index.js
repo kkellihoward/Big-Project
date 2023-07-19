@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
-const express = require('express');
-const mongoose = require('mongoose');
-const accountRoutes = require('./routes/accounts');
-const cors = require('cors');
-const eventRoutes = require('./events');
+import express from 'express';
+import mongoose from 'mongoose';
+import accountRoutes from './API/routes/accounts.js';
+import cors from 'cors';
+import eventRoutes from './API/events.js';
 
 console.log("in server");
 
@@ -39,7 +39,7 @@ dotenv.config();
 
 
 // connect to database
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 	.then(() => {
 		// listen for requests
 		app.listen(process.env.PORT, () => {
