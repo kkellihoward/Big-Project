@@ -57,6 +57,9 @@ export const LoginModal = ({ showModal, setShowModal}) => {
   const [signIn, toggle] = React.useState(true);
   const navigate = useNavigate()
 
+  const [user, setUser] = useState('');
+  const [pass, setPass] = useState('');
+  
   const handleLogin = e => {
     e.preventDefault();
 
@@ -84,9 +87,6 @@ export const LoginModal = ({ showModal, setShowModal}) => {
     
     // .catch( err => console.log(err))
   };
-
-  const [user, setUser] = useState('');
-  const [pass, setPass] = useState('');
   
 
   return (
