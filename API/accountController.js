@@ -1,4 +1,4 @@
-const Account = require('../models/accountModel');
+const Account = require('./accountModel');
 const mongoose = require('mongoose');
 
 // get all accounts
@@ -73,3 +73,11 @@ const updateAccount = async (req, res) => {
 
     res.status(200).json(account);
 }
+
+module.exports = {
+    getAccounts,
+    getAccount,
+    createAccount,
+    deleteAccount,
+    updateAccount
+};
