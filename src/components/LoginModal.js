@@ -78,7 +78,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       }
     )
 
-    .catch( err => console.log("Issue with account"))
+    .catch( err => console.log(err))
   };
 
   const [user, setUser] = useState('');
