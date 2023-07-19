@@ -69,10 +69,12 @@ export const LoginModal = ({ showModal, setShowModal}) => {
     axios.post('https://bp-api-87a503314fa5.herokuapp.com/accounts/login', tempUser)
     .then( response =>
       {
+        console.log(response);
           if(response.status == 200)
           {
             navigate('/Events')
           }
+          
       }
     )
 
