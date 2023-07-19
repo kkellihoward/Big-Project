@@ -62,8 +62,8 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 
     const tempUser = 
     {
-      uName: user,
-      uPass: pass
+      username: user,
+      password: pass
     }
     // post to url where api server
     axios.post('https://bp-api-87a503314fa5.herokuapp.com/accounts/login', tempUser)
