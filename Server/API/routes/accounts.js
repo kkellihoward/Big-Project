@@ -10,10 +10,10 @@ import {
 const accountRoutes = express.Router();
 
 // GET all accounts
-accountRoutes.get('/', getAccounts);
+accountRoutes.get('/getaccounts', getAccounts);
 
 // GET a single account
-accountRoutes.get('/login', login);
+accountRoutes.post('/login', login);
 
 // POST a new account
 accountRoutes.post('/signup', createAccount);
