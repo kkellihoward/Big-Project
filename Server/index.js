@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
     res.end('it works!');
 });
 
-
 app.use((req, res, next) => 
 {
 	res.setHeader('Access-Control-Allow-Origin', '*');
@@ -44,7 +43,7 @@ dotenv.config();
 
 
 // connect to database
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true, dbName: 'BigProject'})
 	.then(() => {
 		// listen for requests
 		app.listen(process.env.PORT, () => {
