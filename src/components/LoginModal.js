@@ -75,10 +75,11 @@ export const LoginModal = ({ showModal, setShowModal}) => {
         {
           console.log(response);
           // navigate('/Events')
+        }
+        console.log("here");
         }   
-      }
     )
-
+    
     .catch( err => console.log(err))
   };
 
