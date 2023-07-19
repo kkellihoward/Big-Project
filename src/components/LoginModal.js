@@ -59,7 +59,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
-  
+
   const handleLogin = e => {
     e.preventDefault();
 
@@ -71,7 +71,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 
     console.log(tempUser.password);
     // post to url where api server
-    //  axios.post('https://bp-api-87a503314fa5.herokuapp.com/routes/accounts/login?username=' + tempUser.username + '&password=' + tempUser.password)
+    axios.post('https://bp-api-87a503314fa5.herokuapp.com/routes/accounts/login?username=' + tempUser.username + '&password=' + tempUser.password)
     // axios.get('https://bp-api-87a503314fa5.herokuapp.com/accounts/login', tempUser)
     // .then( response =>
     //   {
