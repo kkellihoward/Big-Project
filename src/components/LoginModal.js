@@ -66,7 +66,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       password: pass
     }
 
-    console.log(tempUser);
+    console.log(tempUser.password);
     // post to url where api server
     //  axios.post('https://bp-api-87a503314fa5.herokuapp.com/routes/accounts/login?username=' + tempUser.username + '&password=' + tempUser.password)
     // axios.get('https://bp-api-87a503314fa5.herokuapp.com/accounts/login', tempUser)
