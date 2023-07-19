@@ -2,7 +2,7 @@ const express = require('express');
 const {
     createAccount,
     getAccounts,
-    getAccount,
+    login,
     deleteAccount,
     updateAccount
 } = require('../controllers/accountController');
@@ -13,10 +13,10 @@ const router = express.Router();
 router.get('/', getAccounts);
 
 // GET a single account
-router.get('/:id', getAccount);
+router.get('/login', login);
 
 // POST a new account
-router.post('/', createAccount);
+router.post('/signup', createAccount);
 
 // DELETE an account
 router.delete('/:id', deleteAccount);

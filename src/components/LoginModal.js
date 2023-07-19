@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import * as Components from './LoginSignup';
 import { MdClose } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
 
 // css styling for modal from background to close modal
 const Background = styled.div`
@@ -55,9 +57,31 @@ export const LoginModal = ({ showModal, setShowModal}) => {
   const [signIn, toggle] = React.useState(true);
   const navigate = useNavigate()
 
-  const handleLogin = () => {
-    navigate('/Events')
-  }
+  const handleLogin = e => {
+    e.preventDefault();
+
+    const tempUser = 
+    {
+      uName: user,
+      uPass: pass
+    }
+    // post to url where api server
+    axios.post('https://bp-api-87a503314fa5.herokuapp.com/api/accounts/login', tempUser)
+    .then( response =>
+      {
+          if(response.status == 200)
+          {
+            navigate('/Events')
+          }
+      }
+    )
+
+    .catch( err => console.log("Issue with account"))
+  };
+
+  const [user, setUser] = useState('');
+  const [pass, setPass] = useState('');
+  
 
   return (
     <>
@@ -79,8 +103,8 @@ export const LoginModal = ({ showModal, setShowModal}) => {
                 <Components.Form>
                   {/* setting field values for sign up */}
                   <Components.Title>Sign in</Components.Title>
-                  <Components.Input type='userName1' placeholder='User Name' />
-                  <Components.Input type='password' placeholder='Password' />
+                  <Components.Input onChange={e => setUser(e.target.value)} type='userName1' placeholder='User Name'/>
+                  <Components.Input onChange={e => setPass(e.target.value)} type='password' placeholder='Password' />
                   <Components.Button onClick={handleLogin} style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
                 </Components.Form>
               </Components.SignInContainer>
