@@ -60,7 +60,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
 
-  const handleLogin = async e => {
+  const handleLogin = e => {
     e.preventDefault();
 
     const tempUser = 
@@ -69,24 +69,22 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       password: pass
     }
 
-    try {
-      const response = await axios.post(
-        'https://bp-api-87a503314fa5.herokuapp.com/accounts/login',
-        JSON.stringify(tempUser), // Convert object to JSON string
+    console.log(tempUser.password);
+    // post to url where api server
+    axios.post('https://bp-api-87a503314fa5.herokuapp.com/accounts/login', tempUser)
+    .then( response =>
+      {
+        
+        if(response.status == 200)
         {
-          headers: {
-            'Content-Type': 'application/json', // Set the Content-Type header to application/json
-          },
+          //console.log(response);
+          // navigate('/Events')
+          console.log("here");
         }
-      );
-  
-      if (response.status === 200) {
-        // Successful login handling
-      }
-      console.log('here');
-    } catch (err) {
-      console.log(err);
-    }
+        }   
+    )
+    
+     .catch( err => console.log(err))
   };
   
 
