@@ -77,7 +77,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
         
         if(response.status == 200)
         {
-          //console.log(response);
+          console.log(response);
           // navigate('/Events')
         }
         console.log("here");
