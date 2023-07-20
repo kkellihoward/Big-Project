@@ -71,13 +71,14 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 
     console.log(tempUser.password);
     // post to url where api server
-    axios.get('https://bp-api-87a503314fa5.herokuapp.com/accounts/login', tempUser)
+    // axios.get('https://bp-api-87a503314fa5.herokuapp.com/accounts/login', tempUser)
+    axios.get('https://bp-api-87a503314fa5.herokuapp.com/accounts/login?username=' + String(tempUser.username) + '&password=' + String(tempUser.password))
     .then( response =>
       {
         
+        console.log(response.message);
         if(response.status == 200)
         {
-          //console.log(response);
           // navigate('/Events')
         }
         console.log("here");
