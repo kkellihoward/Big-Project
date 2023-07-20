@@ -60,7 +60,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
 
-  handleLogin = e => {
+  const handleLogin = e => {
     e.preventDefault();
 
     const tempUser = 
