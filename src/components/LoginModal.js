@@ -58,46 +58,36 @@ export const LoginModal = ({ showModal, setShowModal}) => {
   const navigate = useNavigate()
 
   const [user, setUser] = useState('');
-  const [pass, setPass] = useState('');
+  const [password, setPass] = useState('');
+  const [email, setEmail] = useState('');
 
-  const handleLogin = e => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    const tempUser = 
-    {
-      username: user,
-      password: pass
-    }
-
-    // console.log(tempUser.password);
-    // post to url where api server
-
-    var js = JSON.stringify(tempUser);
-
-    var config = {
-      method: 'post',
-      url: 'https://bp-api-87a503314fa5.herokuapp.com/accounts/login',
-      headers:
-      {
+    try {
+      const apiUrl = 'https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin'; // Replace with your API endpoint
+      const data = { email, password };
+  
+      const response = await axios.post(apiUrl, data, { headers: {
         'Content-Type': 'application/json'
-      },
-      data: js
-    };
-    // axios(config)
-    axios.post('https://bp-api-87a503314fa5.herokuapp.com/accounts/login?username=' + String(tempUser.username) + '&password=' + String(tempUser.password))
-    .then( response =>
-      {
-        
-        console.log(response.message);
+        }}
+      );
         if(response.status == 200)
         {
-          // navigate('/Events')
+          navigate('/Events')
         }
-        console.log("here");
-        }   
-    )
-    
-     .catch( err => console.log(err))
+
+      // Handle the response from the API as needed
+      console.log('API Response:', response.data);
+      
+      // You can return the response data or handle it further as per your requirements
+      return response.data;
+    } catch (error) {
+      // Handle any errors that occurred during the API call
+      console.error('API Error:', error);
+      // throw error;
+    }
   };   
  
 
