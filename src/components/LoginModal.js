@@ -57,26 +57,22 @@ export const LoginModal = ({ showModal, setShowModal}) => {
   const [signIn, toggle] = React.useState(true);
   const navigate = useNavigate()
 
-  const [user, setUser] = useState('');
-  const [password, setPass] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errMsg, setErr] = useState("");
 
-
-  const handleLogin = async (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     try {
-      const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/signin'; // Replace with your API endpoint
-      const data = { user, password };
+      const apiUrl = 'https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin'; // Replace with your API endpoint
+      const data = { email, password };
   
       const response = await axios.post(apiUrl, data, { headers: {
         'Content-Type': 'application/json'
         }}
       );
-        if(response.status == 200)
-        {
-          navigate('/Events')
-        }
-
+  
       // Handle the response from the API as needed
       console.log('API Response:', response.data);
       
@@ -87,7 +83,25 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       console.error('API Error:', error);
       // throw error;
     }
-  };   
+    // const tempUser =
+    // {
+    //   email: email,
+    //   password: password,
+    // }
+
+  //   axios.post("https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin", {email: String(email), password: String(password)})
+	//   .then( res =>
+	// 	{
+  //     if (res.status == 200)
+  //     {
+  //         console.log("yay");
+  //         return;
+  //     }     
+	// 	}
+	// )
+	// .catch( err => console.log(err))
+
+  };
  
 
   return (
@@ -96,47 +110,35 @@ export const LoginModal = ({ showModal, setShowModal}) => {
         <Background>
           <ModalWrapper showModal={showModal}>
             <ModalContent>
-            {/* Component of the sliding login and sign up */}
             <Components.Container>
               <Components.SignUpContainer signinIn={signIn}>
-                  {/* setting the create account side as a form */}
                   <SignUpForm />
-                  {/* <Components.Form> */}
                       <Components.Title>Create Account</Components.Title>
               </Components.SignUpContainer>
-
               <Components.SignInContainer signinIn={signIn}>
-                  {/*setting the create account side of form  */}
                 <Components.Form>
-                  {/* setting field values for sign up */}
                   <Components.Title>Sign in</Components.Title>
-                  <Components.Input onChange={e => setUser(e.target.value)} type='userName1' placeholder='User Name'/>
-                  <Components.Input onChange={e => setPass(e.target.value)} type='password' placeholder='Password' />
-                  <Components.Button onClick={handleLogin} style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
+                  <Components.Input onChange={e => setEmail(e.target.value)} type='userName1' placeholder='User Name'/>
+                  <Components.Input onChange={e => setPassword(e.target.value)} type='password' placeholder='Password' />
+                  <Components.Button onClick={handleSubmit} style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
                 </Components.Form>
               </Components.SignInContainer>
-
-              {/* container for sliding pannels, as it slides the information changes */}
               <Components.OverlayContainer signinIn={signIn}>
                   <Components.Overlay signinIn={signIn}>
-                  {/* left side pannel for sign up */}
                   <Components.LeftOverlayPanel signinIn={signIn}style={{backgroundColor: '#7f44d4'}}>
                       <Components.Title>Welcome Back!</Components.Title>
                       <Components.Paragraph>
                           If you already have an account, please sign in here!
                       </Components.Paragraph>
-                      {/* sign in button is set to false when it is clicked opn the overlay panel*/}
                       <Components.GhostButton onClick={() => toggle(true)}>
                           Sign In
                       </Components.GhostButton>
                       </Components.LeftOverlayPanel>
-                    {/* right side pannel for sign in */}
                       <Components.RightOverlayPanel signinIn={signIn} style={{backgroundColor: '#7f44d4'}}>
                         <Components.Title>Hello, Friend!</Components.Title>
                         <Components.Paragraph>
                             Get started on your journey with us!
                         </Components.Paragraph>
-                            {/* signup button is set to false when it is clicked opn the overlay panel*/}
                             <Components.GhostButton onClick={() => toggle(false)}>
                                 Sign Up
                             </Components.GhostButton> 
