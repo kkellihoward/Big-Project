@@ -59,7 +59,6 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 
   const [user, setUser] = useState('');
   const [password, setPass] = useState('');
-  const [email, setEmail] = useState('');
 
 
   const handleLogin = async (e) => {
