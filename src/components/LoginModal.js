@@ -67,7 +67,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 
     try {
       const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/signin'; // Replace with your API endpoint
-      const data = { email, password };
+      const data = { user, password };
   
       const response = await axios.post(apiUrl, data, { headers: {
         'Content-Type': 'application/json'
