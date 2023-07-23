@@ -65,7 +65,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
     e.preventDefault();
 
     try {
-      const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/signin'; // Replace with your API endpoint
+      const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/signin'; 
       const data = { email, password };
   
       const response = await axios.post(apiUrl, data, { headers: {
@@ -73,6 +73,10 @@ export const LoginModal = ({ showModal, setShowModal}) => {
         }}
       );
   
+      if(response === 200)
+      {
+        navigate('/Events');
+      }
       // Handle the response from the API as needed
       console.log('API Response:', response.data);
       
@@ -83,24 +87,6 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       console.error('API Error:', error);
       // throw error;
     }
-    // const tempUser =
-    // {
-    //   email: email,
-    //   password: password,
-    // }
-
-  //   axios.post("https://exerciseapi-ca661418c8e5.herokuapp.com/user/signin", {email: String(email), password: String(password)})
-	//   .then( res =>
-	// 	{
-  //     if (res.status == 200)
-  //     {
-  //         console.log("yay");
-  //         return;
-  //     }     
-	// 	}
-	// )
-	// .catch( err => console.log(err))
-
   };
  
 
