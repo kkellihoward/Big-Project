@@ -30,13 +30,22 @@ export const login = async (req, res) => {
 // create a new account
 export const createAccount = async (req, res) => {
     const {username, password} = req.body;
+    
+    const temp = await Account.findOne({username: username});
 
-    // add doc to db
-    try {
-        const account = await Account.create({username, password});
-        res.status(200).json(account);
-    } catch (error) {
-        res.status(400).json({error: error.message});
+    if (temp)
+    {
+        res.status(400).json({error: "Account already exists"});
+    }
+    else
+    {
+        // add doc to db
+        try {
+            const account = await Account.create({username, password});
+            res.status(200).json(account);
+        } catch (error) {
+            res.status(400).json({error: error.message});
+        }
     }
 };
 
