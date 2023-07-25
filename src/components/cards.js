@@ -21,7 +21,7 @@ export default function Cards() {
         <div className='cards' onClick={handleLogin}>
         <Card sx={{ maxWidth: 345, height: 430,}} >
         <CardContent>
-            <br /> <br />
+            <br /> 
             <Typography gutterBottom variant="h5" component="div" color={'#7f44d4'}>
             Sleepover
             </Typography>

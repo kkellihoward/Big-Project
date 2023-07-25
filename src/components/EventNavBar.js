@@ -18,7 +18,7 @@ export default function EventsNavBar(props) {
         <>
         <div className='eventNav'> 
             <div className='search'>
-            <Paper
+            {/* <Paper
             component="form"
             sx={{ p: '2px 4px', width: 500 }}
             >
@@ -30,12 +30,12 @@ export default function EventsNavBar(props) {
                     placeholder="Search for Event"
                     inputProps={{ 'aria-label': 'Search for Event' }}
                 />
-            </Paper>
+            </Paper> */}
 
         
             </div> 
             <div className='avatar'>
-                <Stack direction='row' spacing={1}>
+                <Stack direction='row' spacing={0}>
                     <Avatar sx ={{bgcolor : deepOrange[500], width:55, height: 55}}>M</Avatar>
                 </Stack>
 
