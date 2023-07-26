@@ -3,16 +3,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-exports.createToken = function(id, usr, pwd){
-    return _createToken(id, usr, pwd);
+exports.createToken = function(id, usr){
+    return _createToken(id, usr);
 }
 
-_createToken = function(id, usr, pwd){
+_createToken = function(id, usr){
     var ret = '';
 
     try{
         const expiration = new Date();
-        const user = {id:id, username:usr, password:pwd};
+        const user = {id:id, username:usr};
 
         const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,
             {expiresIn:'10m'});
@@ -28,7 +28,7 @@ _createToken = function(id, usr, pwd){
 
 exports.isExpired = function(token){
     var isError = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET,
-        (err, verifiedJWT) =>
+        (err, decoded) =>
         {
             if(err){
                 return true;
@@ -46,7 +46,6 @@ exports.refresh = function(token){
 
     var userID = ud.payload.id;
     var username = ud.payload.username;
-    var pwd = ud.payload.password;
 
-    return _createToken(userID, username, pwd);
+    return _createToken(userID, username);
 }
