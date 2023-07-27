@@ -51,9 +51,38 @@ export const SignUpForm = () => {
         setErrMsg('');
     }, [user, pwd, matchPwd]);
 
-    const createAccount = e => {
+    const createAccount = async e => {
         e.preventDefault();
         console.log(user, email, pwd);
+
+        if(validName == true && validEmail == true && validPwd == true && validMatch == true)
+        {
+            try {
+                const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/createAccount'; 
+                const data = { email, user, pwd };
+            
+                const response = await axios.post(apiUrl, data, { headers: {
+                  'Content-Type': 'application/json'
+                  }}
+                );
+            
+                if(response.status === 200)
+                {
+                  navigate('/Events');
+                }
+                // Handle the response from the API as needed
+                console.log('API Response:', response.data);
+                
+                // You can return the response data or handle it further as per your requirements
+                return response.data;
+            } catch (error) {
+            // Handle any errors that occurred during the API call
+            console.error('API Error:', error);
+            // throw error;
+            }
+        }
+        else
+            return;
     };
 
     return (
