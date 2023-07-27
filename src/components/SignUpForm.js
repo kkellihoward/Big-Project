@@ -2,12 +2,17 @@ import React, { useRef, useState, useEffect } from 'react';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as Components from './LoginSignup';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 export const SignUpForm = () => {
+    const navigate = useNavigate()
+
     const userRef = useRef();
     const errRef = useRef();
 
@@ -55,8 +60,8 @@ export const SignUpForm = () => {
         e.preventDefault();
         console.log(user, email, pwd);
 
-        if(validName == true && validEmail == true && validPwd == true && validMatch == true)
-        {
+        // if(validName == true && validEmail == true && validPwd == true && validMatch == true)
+        // {
             try {
                 const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/createAccount'; 
                 const data = { email, user, pwd };
@@ -80,9 +85,9 @@ export const SignUpForm = () => {
             console.error('API Error:', error);
             // throw error;
             }
-        }
-        else
-            return;
+        // }
+        // else
+        //     return;
     };
 
     return (
