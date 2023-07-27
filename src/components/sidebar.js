@@ -8,21 +8,23 @@ import { Typography } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import ListItemText from '@mui/material/ListItemText';
-import ListItem from '@mui/material/ListItem';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
+import TextField from '@mui/material/TextField'
+import Grid from '@mui/material/Grid';
+import { Resizable } from 'react-resizable';
+import axios from 'axios';
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
 
 export default function Sidebar () {
+
     
     const [openJoinEventModal, setOpenJoinEventModal] = React.useState(false);
     const [openNewEventModal, setOpenNewEventModal] = React.useState(false);
@@ -123,22 +125,63 @@ export default function Sidebar () {
     ]
 
 
+    const handleJoinButtonClick = () => {
+        // Get the event title and event date from the input fields
+        const eventTitle = document.getElementById('event-title').value;
+        const eventDate = document.getElementById('event-date').value;
+    
+        // You may need to fetch the user ID from your authentication system or store it in the frontend state
+        const host_id = '64bb31bce9c02f04e9943292';
+    
+        // Example invitee IDs, modify as needed
+        const invitee_ids = ['invitee_id_1', 'invitee_id_2'];
+    
+        // Data to send to the API
+        const eventData = {
+          title: eventTitle,
+          host_id: host_id,
+          invitee_ids: invitee_ids,
+          date: eventDate,
+        };
+    
+        // Make a POST request to the backend API's createEvent endpoint
+        axios
+          .post('https://bp-api-87a503314fa5.herokuapp.com/event/createEvent', eventData)
+          .then((response) => {
+            // Handle the response if needed
+            // For example, you might want to navigate to the newly created event page
+            // or show a success message.
+          })
+          .catch((error) => {
+            // Handle errors if any
+            console.error('Error creating event:', error);
+          });
+    
+        // Close the dialog after sending the data
+        handleCloseNewEventModal();
+      };   
+
+
+
+
+
     return(
 
         <div className="sideContainer">
         <div className="sidebarList">
         {SideBarData.map((val, key) =>{
-           return(
+            const isFirstItem = key === 0;
+            return(
                 <div 
                 key={key}
-                className="row"
+                className={`row ${isFirstItem ? "firstItem" : ""}`}
                 onClick={val.handle}
                 > 
                     <div className="icons">
                         {val.icon}
                     </div>
                 </div>
-           );
+            );
         })}
         </div>
         <Dialog
@@ -157,13 +200,57 @@ export default function Sidebar () {
                     >
                         <CloseIcon />
                     </IconButton>
-                    <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+                    <Typography sx={{flexGrow: 1, display: 'flex', justifyContent: 'center', fontSize: '1.2rem'}}>
+                        Create Event
                     </Typography>
-                    <Button autoFocus color="inherit" >
+                    <Button autoFocus color="inherit" onClick={handleJoinButtonClick}>
                         Join
                     </Button>
                 </Toolbar>
             </AppBar>
+
+            <div style={{padding:'20px'}}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} textAlign={"center"}>
+                        <TextField
+                        id="event-title"
+                        label="Event Title"
+                        fullWidth
+                        variant="outlined"
+                        // You can handle the input value with onChange event
+                        />
+                    </Grid>
+                    <Grid item xs={1.5}>
+                        {/* event date */}
+                        <TextField
+                        id="event-date"
+                        label="(MM/DD/YEAR)"
+                        fullWidth
+                        variant="outlined"
+                        // You can handle the input value with onChange event
+                        />
+                    </Grid>
+                    <Grid item xs={4}></Grid>
+                    <Grid item xs={6.5}> 
+                        <Resizable
+                        height={500}
+                        width={500}
+                        minConstraints={[200,100]}
+                        maxConstraints={[600,400]}
+                        >
+                            <TextField
+                            label="Event Description"
+                            fullWidth
+                            multiline
+                            rows={10}
+                            variant="outlined"
+                            // You can handle the input value with onChange event
+                            />
+                        </Resizable>
+                    </Grid>
+                </Grid>
+            </div>
+
         </Dialog>
 
         <Modal
