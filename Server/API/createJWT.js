@@ -1,13 +1,9 @@
+
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
-exports.createToken = function(id, usr){
-    return _createToken(id, usr);
-}
-
-_createToken = function(id, usr){
+const createToken = function(id, usr){
     var ret = '';
 
     try{
@@ -23,10 +19,9 @@ _createToken = function(id, usr){
         ret = {error:e.message};
     }
 
-    return ret;
-}
+    return ret;}
 
-exports.isExpired = function(token){
+const isExpired = function(token){
     var isError = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET,
         (err, decoded) =>
         {
@@ -41,11 +36,11 @@ exports.isExpired = function(token){
     return isError;
 }
 
-exports.refresh = function(token){
+const refresh = function(token){
     var ud = jwt.decode(token, {complete:true});
 
     var userID = ud.payload.id;
     var username = ud.payload.username;
 
-    return _createToken(userID, username);
+    return createToken(userID, username);
 }
