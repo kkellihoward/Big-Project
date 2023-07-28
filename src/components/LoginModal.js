@@ -66,7 +66,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 
     try {
       const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/signin'; 
-      const data = { email, password };
+      const data = {email, password };
   
       const response = await axios.post(apiUrl, data, { headers: {
         'Content-Type': 'application/json'
@@ -81,6 +81,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       console.log('API Response:', response.data);
       
       // You can return the response data or handle it further as per your requirements
+      document.cookie = response.data ;
       return response.data;
     } catch (error) {
       // Handle any errors that occurred during the API call

@@ -129,18 +129,19 @@ export default function Sidebar () {
         // Get the event title and event date from the input fields
         const eventTitle = document.getElementById('event-title').value;
         const eventDate = document.getElementById('event-date').value;
+        const eventDescription = document.getElementById('event-description').value;
     
         // You may need to fetch the user ID from your authentication system or store it in the frontend state
-        const host_id = '64bb31bce9c02f04e9943292';
+        const host_id = document.cookie._id;
     
         // Example invitee IDs, modify as needed
-        const invitee_ids = ['invitee_id_1', 'invitee_id_2'];
+        // const invitee_ids = ['invitee_id_1', 'invitee_id_2'];
     
         // Data to send to the API
         const eventData = {
           title: eventTitle,
+          description: eventDescription,
           host_id: host_id,
-          invitee_ids: invitee_ids,
           date: eventDate,
         };
     
@@ -239,6 +240,7 @@ export default function Sidebar () {
                         maxConstraints={[600,400]}
                         >
                             <TextField
+                            id="event-description"
                             label="Event Description"
                             fullWidth
                             multiline
@@ -269,10 +271,10 @@ export default function Sidebar () {
             <Fade in={openJoinEventModal}>
                 <Box sx ={style}>
                     <Typography id="transition-modal-title" variant="h6" component="h2">
-                        Text in a modal
+                        Join Event
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                        (Coming Soon!)
                     </Typography>
                 </Box>
             </Fade>

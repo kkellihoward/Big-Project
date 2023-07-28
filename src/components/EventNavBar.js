@@ -22,11 +22,14 @@ export default function EventsNavBar(props) {
     const handleLogout = () => {
       navigate('/')
     };
+
+    const firstLetter = document.cookie.username;
+    console.log(document.cookie.username);
+  
   
     return (
       <>
         <div className='eventNav'> 
-          {/* Rest of the code... */}
   
           <div className='avatar'>
             <Stack>
@@ -34,7 +37,7 @@ export default function EventsNavBar(props) {
                 sx={{ bgcolor: deepOrange[500], width: 55, height: 55 }}
                 onClick={handleAvatarClick}
               >
-                M
+                {firstLetter}
               </Avatar>
             </Stack>
           </div>
@@ -51,4 +54,3 @@ export default function EventsNavBar(props) {
       </>
     );
   }
-
