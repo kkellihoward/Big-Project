@@ -49,7 +49,7 @@ const VerificationPage = () => {
 
 	return (
 		<div>		
-			<h1>{{messsage}}</h1>
+			{messsage}
 		</div>
 	)
 }
