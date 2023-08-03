@@ -9,7 +9,7 @@ const VerificationPage = () => {
 
 	useEffect(() => {
 		const data = { token };
-		const response = await axios.get(`https://big-project1-2fc2828cbba2.herokuapp.com/verify-email`, data,{ headers: {
+		axios.post(`https://big-project1-2fc2828cbba2.herokuapp.com/verify-email`, data,{ headers: {
         'Content-Type': 'application/json'
         }}
       );
