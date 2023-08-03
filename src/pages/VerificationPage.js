@@ -24,8 +24,9 @@ const VerificationPage = () => {
 
 	return (
 		<div>
-			
+						
 			<h1>{message}</h1>
+			<h2>here</h2>
 		</div>
 	)
 }
