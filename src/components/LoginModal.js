@@ -59,7 +59,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errMsg, setErr] = useState("");
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -82,11 +82,13 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       
       // You can return the response data or handle it further as per your requirements
       window.sessionStorage.setItem("userinfo", JSON.stringify(response.data));
+      setMessage(response.data.message);
       return response.data;
     } catch (error) {
       // Handle any errors that occurred during the API call
       console.error('API Error:', error);
       // throw error;
+      setMessage(error.response.data.message);
     }
   };
  
@@ -107,6 +109,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
                   <Components.Title>Sign in</Components.Title>
                   <Components.Input onChange={e => setEmail(e.target.value)} type='username' placeholder='User Name'/>
                   <Components.Input onChange={e => setPassword(e.target.value)} type='password' placeholder='Password' />
+                  <p style={{color: 'red'}}>{message}</p>
                   <Components.Button onClick={handleSubmit} style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
                 </Components.Form>
               </Components.SignInContainer>
