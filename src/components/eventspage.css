@@ -3,10 +3,10 @@
 
 .eventsContainer{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #c7c7c7;
   position: absolute; 
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
   z-index: -1;
 }
@@ -17,7 +17,7 @@
   width: 150px;
   background-color: #7f44d4;
   padding-top: 10px;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 2;
 }
@@ -72,7 +72,7 @@
   /* float: right; */
   width: 100%;
   height: 100px;
-  z-index: 1;
+  z-index: 0;
   background-color: #FFFFFF;
   position: absolute;
   box-shadow: 0px 2px 20px 1px #353535;
@@ -125,17 +125,20 @@
 } */
 
 .cardContainer{
-  padding-top:225px;
-  padding-left: 300px;
-  height: 100vh;
-  width: 100vw;
+  /* padding-top:225px;
+  padding-left: 300px; */
+  /* height: 100vh;
+  width: 100vw; */
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  margin-top: 190px;
+  margin-left: 290px;
+  gap: 15px;
 }
 
 .cards {
 
+  margin:0px;
   width: 345px;
   height: 430px;
 
@@ -144,6 +147,10 @@
 .cards:hover{
   cursor: pointer;
   box-shadow: 0px 1px 3px 1px #585858;
+}
+
+.description {
+  font-size: 1.8rem; /* Adjust the font size as needed */
 }
 
 .adContainer{
@@ -164,4 +171,119 @@ width: 10%;
 .adContainer img{
  width: 85%;
  height: auto;
+}
+
+.cebody {
+  padding-top: 250px;
+  background-color: #c7c7c7;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+/* Style for the container div that wraps the content */
+.createEventPage {
+  background-color: #ffffff; /* White background for the container */
+  margin: auto;
+  max-width: 800px;
+  padding: 20px; /* Add some padding to the container */
+}
+
+/* Style for the button */
+.createEventPage button {
+  background-color: #7f44d4; /* Set button color to #7f44d4 */
+  color: #ffffff; /* Set button text color to white */
+  margin-top: 10px;
+}
+
+.modalContent{
+  z-index: 4;
+}
+
+/* eventspage.css */
+
+.event-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  width: 500px;
+  height: 50vh;
+}
+
+.event-title {
+  justify-content: center;
+  font-size: 32px;
+  border-bottom: 2px solid #ccc;
+  color: #7f44d4;
+}
+
+.event-date {
+  font-size: 16px;
+  padding-left: 70px;
+  margin-top: 0px;
+}
+
+.description-box {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 100%;
+}
+
+.event-description-title{
+  padding-left: 175px;
+  color: #7f44d4;
+  border-bottom: 2px solid black;
+  z-index: 3;
+}
+
+.event-description {
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.dropdown-menu {
+  position: fixed;
+  display: flex;
+  top: 20px;
+  right: 20px;
+}
+
+.dropdown-button {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #f9f9f9;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.dropdown-menu:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
 }

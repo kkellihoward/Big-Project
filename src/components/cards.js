@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Cards() {
+export default function Cards(updateFLag) {
   const navigate = useNavigate();
   const [hostedEventIds, setHostedEventIds] = useState([]);
 
@@ -25,10 +25,10 @@ export default function Cards() {
       .catch((error) => {
         console.error('Error fetching user data:', error);
       });
-  }, []);
+  }, [updateFLag]);
 
   return (
-    <div className='cardContainer' style={{ display: 'flex', flexWrap: 'wrap', gap: '25px' }}>
+    <div className='cardContainer'>
       {hostedEventIds.map((event_id) => (
         <EventCard key={event_id} eventId={event_id} />
       ))}
@@ -40,6 +40,7 @@ const EventCard = ({eventId}) =>{
 
   const navigate = useNavigate();
   const [eventData, setEventData] = useState(null);
+  
 
   useEffect(() => {
     // Fetch event data for the given eventId
@@ -55,9 +56,8 @@ const EventCard = ({eventId}) =>{
   }, [eventId]);
 
   const handleCardClick = () => {
-    // Handle the click event here, e.g., navigate to a specific route
-    // based on the card id or perform other actions
-    navigate(`/event/${eventId}`);
+    window.sessionStorage.setItem("eventinfo", JSON.stringify(eventId));
+    navigate(`/EventsInfo`);
   };
 
 
@@ -66,13 +66,16 @@ const EventCard = ({eventId}) =>{
     return null; // Return null or a loading indicator while waiting for the data
   }
 
+  const eventDataDate = new Date(eventData.date);
+  const formattedDate = `${(eventDataDate.getUTCMonth() + 1).toString().padStart(2, '0')}/${(eventDataDate.getUTCDate()).toString().padStart(2, '0')}/${eventDataDate.getUTCFullYear()}`;
+
   return (
     <div
       className='cards'
       onClick={handleCardClick}
-      style={{ height: '200px', width: '400px' }}
+      style={{ height: '400px', width: '290px' }}
     >
-      <Card sx={{ maxWidth: 400, height: 200 }}>
+      <Card sx={{ maxWidth: 290, height: 400 }}>
         <CardContent>
           <br />
           <Typography gutterBottom variant="h5" component="div" color={'#7f44d4'}>
@@ -80,7 +83,19 @@ const EventCard = ({eventId}) =>{
           </Typography>
           <hr />
           <Typography variant="body2" color={'#8f57dd'}>
-            Date: {eventData.date}
+            Date: 
+          </Typography>
+          <Typography variant='body2'>
+          {formattedDate}
+          </Typography>
+          <br />
+          <div className="description"> 
+          <Typography color={'#8f57dd'}>
+          Description: 
+          </Typography>
+          </div>
+          <Typography variant='body2'>
+          {eventData.description}
           </Typography>
         </CardContent>
       </Card>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import './eventspage.css';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
@@ -17,7 +17,7 @@ import TextField from '@mui/material/TextField'
 import Grid from '@mui/material/Grid';
 import { Resizable } from 'react-resizable';
 import axios from 'axios';
-
+import Cards from './cards';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -118,12 +118,14 @@ export default function Sidebar () {
                     <path d="M29.445 23.6785C30.6785 23.6785 31.6785 22.6786 31.6785 21.445C31.6785 20.2114 30.6785 19.2115 29.445 19.2115C28.2114 19.2115 27.2115 20.2114 27.2115 21.445C27.2115 22.6786 28.2114 23.6785 29.445 23.6785Z" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M35.1199 20.2504L34.3026 18.277L35.401 16.978L33.912 15.489L32.6201 16.5931L30.6048 15.7643L30.1413 14H28.6864L28.2159 15.7876L26.2469 16.6176L24.978 15.489L23.489 16.978L24.571 18.3098L23.7663 20.2883L22 20.7005V22.1895L23.7876 22.6775L24.6175 24.6461L23.489 25.912L24.978 27.401L26.3115 26.3143L28.2516 27.1124L28.7005 28.89H30.1895L30.6396 27.113L32.6129 26.2958C32.9418 26.5309 33.912 27.401 33.912 27.401L35.401 25.912L34.2961 24.6087L35.1135 22.6347L36.8899 22.1725L36.89 20.7005L35.1199 20.2504Z" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>,
-            handle : handleExit,
+            
         }
 
 
     ]
 
+
+    const [updateFlag, setUpdateFlag] = useState(false);
 
     const handleJoinButtonClick = () => {
         // Get the event title and event date from the input fields
@@ -168,6 +170,7 @@ export default function Sidebar () {
                     .patch(`https://bp-api-87a503314fa5.herokuapp.com/user/updateAccount/${host_id}`, updatedUserData)
                     .then((patchResponse) => {
                       console.log('User data updated:', patchResponse.data);
+                      setUpdateFlag(!updateFlag);
                     })
                     .catch((patchError) => {
                       console.error('Error updating user data:', patchError);
@@ -234,7 +237,7 @@ export default function Sidebar () {
                         Create Event
                     </Typography>
                     <Button autoFocus color="inherit" onClick={handleJoinButtonClick}>
-                        Join
+                        create
                     </Button>
                 </Toolbar>
             </AppBar>
@@ -251,10 +254,9 @@ export default function Sidebar () {
                         />
                     </Grid>
                     <Grid item xs={1.5}>
-                        {/* event date */}
                         <TextField
                         id="event-date"
-                        label="(MM/DD/YEAR)"
+                        label="(YEAR/MM/DD)"
                         fullWidth
                         variant="outlined"
                         // You can handle the input value with onChange event

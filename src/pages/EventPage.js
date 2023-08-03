@@ -11,7 +11,7 @@ export default function EventsPage (){
     return(
         <>
         <div className="eventsContainer">
-            <EventsNavBar />
+        <EventsNavBar />
             <Sidebar />
             {/* <PopupAd />  */}
             <Cards />

@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element ={<LandingPage />} />
           <Route path='Events' element ={<EventsPage />} />
-          <Route path= 'Sleepover' element = {<SpecificEventPage />} />
+          <Route path= 'EventsInfo' element = {<SpecificEventPage />} />
         </Routes>
       </main>
     </BrowserRouter>
