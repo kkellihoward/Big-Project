@@ -7,7 +7,7 @@ exports.storeToken = function(token){
     }
 }
 
-exports. retrieveToken = function(){
+exports.retrieveToken = function(){
     var user;
     try{
         user = localStorage.getItem('token_data');
