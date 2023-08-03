@@ -23,10 +23,8 @@ const VerificationPage = () => {
 	}, [])
 
 	return (
-		<div>
-						
-			<h1>{message}</h1>
-			<h2>here</h2>
+		<div>		
+			<h1>Thank you for verifying your email!</h1>
 		</div>
 	)
 }
