@@ -3,11 +3,13 @@ import './eventspage.css';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
 
 const CreateEventPage = () => {
 
   const [eventData, setEventData] = useState(null);
   const [hostId, setHostId] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const navigate = useNavigate()
 
@@ -84,7 +86,7 @@ const CreateEventPage = () => {
           <button className="dropdown-button">&#8942;</button>
           <div className="dropdown-content">
             <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={() => setShowModal(true)}>Delete</button>
           </div>
         </div>
 
@@ -103,6 +105,32 @@ const CreateEventPage = () => {
           </div>
         </>
       )}
+
+<Dialog open={showModal} onClose={() => setShowModal(false)}>
+        <DialogTitle>Confirm Delete</DialogTitle>
+        <DialogContent>
+          <DialogContentText>Are you sure you want to delete?</DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDelete} variant="contained" color="error">
+            Yes
+          </Button>
+          <Button onClick={() => setShowModal(false)} color="primary" autoFocus>
+            No
+          </Button>
+        </DialogActions>
+      </Dialog>
+    
+
+
+{/* {showModal && (
+        <div className="modal">
+          <p>Are you sure you want to delete?</p>
+          <button onClick={handleDelete}>Yes</button>
+          <button onClick={() => setShowModal(false)}>No</button>
+        </div>
+      )} */}
+
     </div>
   );
 
