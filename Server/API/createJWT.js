@@ -11,7 +11,7 @@ _createToken = function(id, username, password){
         const user = {id:id, username:username, password:password};
 
         const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SERCRET, {expiresIn: '10m'});
-        
+
         var ret = {accessToken:accessToken};
     }
     catch(e){
@@ -32,6 +32,8 @@ exports.isExpired = function(token){
                 return false;
             }
         })
+
+    return isError;
 }
 
 exports.refresh = function(token){
