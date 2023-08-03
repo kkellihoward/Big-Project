@@ -1,28 +1,29 @@
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-dotenv.config();
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-const createToken = function(id, usr){
-    var ret = '';
+exports.createToken = function(id, username){
+    return _createToken(id, username);
+}
 
+_createToken = function(id, username){
     try{
         const expiration = new Date();
-        const user = {id:id, username:usr};
+        const user = {id:id, username:username};
 
-        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,
-            {expiresIn:'10m'});
-
-        ret = {accessToken:accessToken};
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SERCRET, {expiresIn: '10m'});
+        
+        var ret = {accessToken:accessToken};
     }
     catch(e){
-        ret = {error:e.message};
+        var ret = {error:e.message};
     }
 
-    return ret;}
+    return ret;
+}
 
-const isExpired = function(token){
+exports.isExpired = function(token){
     var isError = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET,
-        (err, decoded) =>
+        (err, verifiedJWT) =>
         {
             if(err){
                 return true;
@@ -30,16 +31,14 @@ const isExpired = function(token){
             else{
                 return false;
             }
-        });
-
-    return isError;
+        })
 }
 
-const refresh = function(token){
+exports.refresh = function(token){
     var ud = jwt.decode(token, {complete:true});
 
-    var userID = ud.payload.id;
+    var id = ud.payload.id;
     var username = ud.payload.username;
 
-    return createToken(userID, username);
+    return _createToken(id, username);
 }
