@@ -76,7 +76,7 @@ export const SignUpForm = () => {
                 
                 if(response.status === 200)
                 {
-                  navigate('/Events');
+                  navigate('/');
                 }
                 // Handle the response from the API as needed
                 console.log('API Response:', response.data);
