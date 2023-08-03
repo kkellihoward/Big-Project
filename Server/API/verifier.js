@@ -6,7 +6,7 @@ const isVerified = function(email, code){
     client.verify.v2.services(TWILIO_SERVICE_SID)
                 .verificationChecks
                 .create({to: email, code: code})
-                .then(verification_check => verification_check.sid);
+                .then(verification_check => verification_check.status);
 }
 
 app.post('/api', (req, res) => {
