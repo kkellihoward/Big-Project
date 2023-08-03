@@ -17,6 +17,7 @@ function App() {
           <Route path='/' element ={<LandingPage />} />
           <Route path='Events' element ={<EventsPage />} />
           <Route path= 'EventsInfo' element = {<SpecificEventPage />} />
+          <Route path= 'user/verify-email/:token' element = {VerificationPage />} />
         </Routes>
       </main>
     </BrowserRouter>
