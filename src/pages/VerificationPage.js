@@ -9,7 +9,7 @@ const VerificationPage = () => {
 
 	useEffect(() => {
 
-		axios.get(`https://big-project1-2fc2828cbba2.herokuapp.com/verify-email/${token}`)
+		axios.get(`https://big-project1-2fc2828cbba2.herokuapp.com/user/verify-email/${token}`)
 		.then(function (response) {
 			console.log("api call in email verification page");
 			console.log(response.data);
@@ -24,8 +24,8 @@ const VerificationPage = () => {
 
 	return (
 		<div>
-			<h1>Event Planning</h1>
-			<h2>Verification Page</h2>
+			// <h1>Event Planning</h1>
+			// <h2>Verification Page</h2>
 			<h3>{message}</h3>
 		</div>
 	)
