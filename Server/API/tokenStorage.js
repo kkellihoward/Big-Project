@@ -1,9 +1,4 @@
-
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const storeToken = function(token){
+exports.storeToken = function(token){
     try{
         localStorage.setItem('token_data', token.accessToken);
     }
@@ -12,14 +7,14 @@ const storeToken = function(token){
     }
 }
 
-const retrieveToken = function(){
-    var ud;
+exports. retrieveToken = function(){
+    var user;
     try{
-        ud = localStorage.getItem('token_data');
+        user = localStorage.getItem('token_data');
     }
     catch(e){
         console.log(e.message);
     }
 
-    return ud;
+    return user;
 }
