@@ -2,7 +2,7 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
-exports.verify = async function(email){
+export const verify = async function(email){
     return client.verify.v2.services(process.env.TWILIO_SERVICE_SID)
         .verifications
         .create({to: email, channel: 'email'})
