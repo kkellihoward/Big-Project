@@ -107,7 +107,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
               <Components.SignInContainer signinIn={signIn}>
                 <Components.Form>
                   <Components.Title>Sign in</Components.Title>
-                  <Components.Input onChange={e => setEmail(e.target.value)} type='username' placeholder='User Name'/>
+                  <Components.Input onChange={e => setEmail(e.target.value)} type='username' placeholder='Email'/>
                   <Components.Input onChange={e => setPassword(e.target.value)} type='password' placeholder='Password' />
                   <p style={{color: 'red'}}>{message}</p>
                   <Components.Button onClick={handleSubmit} style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
