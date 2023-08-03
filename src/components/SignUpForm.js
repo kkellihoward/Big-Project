@@ -72,7 +72,7 @@ export const SignUpForm = () => {
                   'Content-Type': 'application/json'
                   }}
                 );
-            
+                
                 if(response.status === 200)
                 {
                   navigate('/Events');
