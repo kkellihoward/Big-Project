@@ -35,21 +35,21 @@ const VerificationPage = () => {
 	                {
 				// Handle the response from the API as needed
 		                console.log('API Response:', response.data);
-				setMessage(response.data);
+				// setMessage(response.data);
 	                }
 		}
 		catch (error) {
 	            // Handle any errors that occurred during the API call
 	            console.error('API Error:', error);
 	            // throw error;
-		    setMessage(error);
+		    // setMessage(error);
 	        }
 
 	}, [])
 
 	return (
 		<div>		
-			{messsage}
+			<h1>You have been logged in</h1>
 		</div>
 	)
 }
