@@ -4,16 +4,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const VerificationPage = () => {
-	
+	const { token } = useParams();
 	const [message, setMessage] = useState("");
 
 	useEffect(() => {
-		const data = { token };
-		axios.post(`https://big-project1-2fc2828cbba2.herokuapp.com/verify-email`, data,{ headers: {
-        'Content-Type': 'application/json'
-        }}
-      );
-			
+
+		axios.get(`https://big-project1-2fc2828cbba2.herokuapp.com/verify-email/${token}`)
 		.then(function (response) {
 			console.log("api call in email verification page");
 			console.log(response.data);
