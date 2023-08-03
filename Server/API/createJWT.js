@@ -1,14 +1,14 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-exports.createToken = function(id, username){
-    return _createToken(id, username);
+exports.createToken = function(id, username, password){
+    return _createToken(id, username, password);
 }
 
-_createToken = function(id, username){
+_createToken = function(id, username, password){
     try{
         const expiration = new Date();
-        const user = {id:id, username:username};
+        const user = {id:id, username:username, password:password};
 
         const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SERCRET, {expiresIn: '10m'});
         
@@ -39,6 +39,7 @@ exports.refresh = function(token){
 
     var id = ud.payload.id;
     var username = ud.payload.username;
+    var password = ud.payload.password;
 
-    return _createToken(id, username);
+    return _createToken(id, username, password);
 }
