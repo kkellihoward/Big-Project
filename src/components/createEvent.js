@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import './eventspage.css';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreateEventPage = () => {
 
   const [eventData, setEventData] = useState(null);
   const [hostId, setHostId] = useState(null);
+
+  const navigate = useNavigate()
+
+    const handleExit = () => {
+        navigate('/Events')
+      }
 
   useEffect(() => {
 
@@ -28,7 +35,6 @@ const CreateEventPage = () => {
         console.error('Error fetching event data:', error);
       });
 
-  
   }, []);
 
 
@@ -38,31 +44,31 @@ const CreateEventPage = () => {
     };
   
     const handleDelete = () => {
-
-      console.log(hostId)
-      console.log(eventData._id)
-
-      // if (!eventData || !eventData.hosted_event_ids) {
-      //   return; // Do nothing if eventData is null
-      // }
- 
+      console.log(eventData._id);
+      
+      if (!eventData) {
+        return; // Do nothing if eventData is null
+      }
+    
       const eventId = eventData._id;
+    
       axios
-      .patch(`https://bp-api-87a503314fa5.herokuapp.com/user/updateAccount/${hostId}`, {
-      })
-      .then((response) => {
-        
-        axios.patch(`https://bp-api-87a503314fa5.herokuapp.com/user/updateAccount/${hostId}`, {
-          hosted_event_ids: response.hosted_event_ids.filter((id) => id !== eventId),
+        .delete(`https://bp-api-87a503314fa5.herokuapp.com/event/deleteEvent/${eventData._id}`)
+        .then((response) => {
+          console.log('Event successfully deleted');
+          // Optionally, you can perform additional actions after deletion
+    
+          // Update eventData with the new hosted_event_ids from the response
+          setEventData((prevData) => ({
+            ...prevData,
+            hosted_event_ids: response.data.hosted_event_ids, // Assuming the API returns updated hosted_event_ids
+          }));
+        })
+        .catch((error) => {
+          console.error('Error deleting event:', error);
         });
-      })
-      .catch((error) => {
-        console.error('Error deleting event:', error);
-      });
 
-      console.log('Delete event clicked');
-
-
+        handleExit();
     };
 
     const eventDataDate = eventData ? new Date(eventData.date) : null;
