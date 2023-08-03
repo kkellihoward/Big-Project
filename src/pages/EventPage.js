@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactDOM } from "react";
 import Sidebar from "../components/sidebar";
 import '../components/eventspage.css';
 import '../components/style.css';
@@ -14,7 +13,7 @@ export default function EventsPage (){
         <div className="eventsContainer">
             <EventsNavBar />
             <Sidebar />
-            <PopupAd /> 
+            {/* <PopupAd />  */}
             <Cards />
         </div>
         </>

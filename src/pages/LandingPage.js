@@ -36,7 +36,7 @@ function LandingPage()
                     Plan your good times with our event manager! Send out invites, upload pictures, ask the attendees questions.
                     Everything you need right here. Click the button below to get started!
                     </p>
-                    <button className='button2' onClick={openModal}>Get Started</button>
+                    {/* <button className='button2' onClick={openModal}>Get Started</button> */}
                 </div>
                 :
                 <></>

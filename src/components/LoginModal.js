@@ -81,7 +81,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
       console.log('API Response:', response.data);
       
       // You can return the response data or handle it further as per your requirements
-      document.cookie = response.data ;
+      window.sessionStorage.setItem("userinfo", JSON.stringify(response.data));
       return response.data;
     } catch (error) {
       // Handle any errors that occurred during the API call
@@ -105,7 +105,7 @@ export const LoginModal = ({ showModal, setShowModal}) => {
               <Components.SignInContainer signinIn={signIn}>
                 <Components.Form>
                   <Components.Title>Sign in</Components.Title>
-                  <Components.Input onChange={e => setEmail(e.target.value)} type='userName1' placeholder='User Name'/>
+                  <Components.Input onChange={e => setEmail(e.target.value)} type='username' placeholder='User Name'/>
                   <Components.Input onChange={e => setPassword(e.target.value)} type='password' placeholder='Password' />
                   <Components.Button onClick={handleSubmit} style={{backgroundColor: '#7f44d4'}}>Sign In</Components.Button>
                 </Components.Form>

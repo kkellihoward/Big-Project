@@ -22,6 +22,6 @@ accountRoutes.post('/signup', createAccount);
 accountRoutes.delete('/:id', deleteAccount);
 
 // UPDATE an account
-accountRoutes.patch('/:id', updateAccount);
+accountRoutes.patch('/updateAccount/:id', updateAccount);
 
 export default accountRoutes;

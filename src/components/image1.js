@@ -5,8 +5,10 @@ function Image1()
 {
    return(
         <>
-            <div className = {Image1CSS.image1container}>
+            <div className={Image1CSS.image1container}> 
+            <div className = 'image1'> 
                 <img src = {require('../assets/images/lpage.jpg')} alt='background'  />
+            </div>
             </div>
         </>
     );
