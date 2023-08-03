@@ -12,6 +12,7 @@ const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 export const SignUpForm = () => {
     const navigate = useNavigate()
+    const [message, setMessage] = useState('');
 
     const userRef = useRef();
     const errRef = useRef();
@@ -79,12 +80,15 @@ export const SignUpForm = () => {
                 }
                 // Handle the response from the API as needed
                 console.log('API Response:', response.data);
+
+                setMessage(response.data.message);
                 
                 // You can return the response data or handle it further as per your requirements
                 return response.data;
             } catch (error) {
             // Handle any errors that occurred during the API call
             console.error('API Error:', error);
+            setMessage(error.response.data.message);
             // throw error;
             }
         // }
@@ -167,6 +171,7 @@ export const SignUpForm = () => {
                     <FontAwesomeIcon icon={faInfoCircle} />
                     &nbsp;Must match the first password input field.
                 </p>
+                <p style={{color: 'red'}}>{message}</p>
                 <Components.Button type='submit' style={{backgroundColor: '#7f44d4'}}>Sign Up</Components.Button>
             </Components.Form>
         </>
