@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 //pages
 import LandingPage from './pages/LandingPage';
 import EventsPage from './pages/EventPage';
+import VerificationPage from './pages/VerificationPage';
 import SpecificEventPage from './pages/SpecificEventPage';
 
 function App() {
