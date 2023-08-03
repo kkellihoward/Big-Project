@@ -9,6 +9,7 @@ const VerificationPage = () => {
 
 	useEffect(() => {
 		console.log("here")
+		console.log(token)
 		axios.get(`https://bp-api-87a503314fa5.herokuapp.com/user/verify-email/${token}`)
 		.then(function (response) {
 			console.log("api call in email verification page");
