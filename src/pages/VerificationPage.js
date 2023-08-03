@@ -24,9 +24,8 @@ const VerificationPage = () => {
 
 	return (
 		<div>
-			// <h1>Event Planning</h1>
-			// <h2>Verification Page</h2>
-			<h3>{message}</h3>
+			
+			<h1>{message}</h1>
 		</div>
 	)
 }
