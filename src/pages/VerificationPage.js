@@ -26,7 +26,7 @@ const VerificationPage = () => {
         		const verificationToken = token
                 	const data = { verificationToken };
 	
-			const response = await axios.post(apiUrl, data, { headers: {
+			const response = axios.post(apiUrl, data, { headers: {
 	                  'Content-Type': 'application/json'
 	                  }}
 	                );
