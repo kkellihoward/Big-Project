@@ -9,19 +9,6 @@ const VerificationPage = () => {
 
 	useEffect(() => {
 		try{	
-			console.log("here")
-			console.log(token)
-			// axios.get(`https://bp-api-87a503314fa5.herokuapp.com/user/verify-email/${token}`)
-			// .then(function (response) {
-			// 	console.log("api call in email verification page");
-			// 	console.log(response.data);
-			// 	setMessage(response.data.message);
-			// })
-			// .catch(function (error) {
-			// 	console.log("error in api call in email verification page");
-			// 	console.log(error);
-			// })
-
 			const apiUrl = 'https://bp-api-87a503314fa5.herokuapp.com/user/verify-email/'; 
         		const verificationToken = token
                 	const data = { verificationToken };
@@ -49,7 +36,7 @@ const VerificationPage = () => {
 
 	return (
 		<div>		
-			<h1>You have been logged in</h1>
+			<h1>Your account has been sucessfully verified!</h1>
 		</div>
 	)
 }
