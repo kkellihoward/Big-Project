@@ -33,11 +33,9 @@ const VerificationPage = () => {
 	                
 	                if(response.status === 200)
 	                {
-	                  navigate('/Events');
+				// Handle the response from the API as needed
+		                console.log('API Response:', response.data);
 	                }
-	
-			// Handle the response from the API as needed
-	                console.log('API Response:', response.data);
 		}
 		catch (error) {
 	            // Handle any errors that occurred during the API call
